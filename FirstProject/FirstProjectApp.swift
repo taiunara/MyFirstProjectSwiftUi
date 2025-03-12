@@ -11,7 +11,7 @@ import SwiftUI
 struct FirstProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TaskView() //view inicial, parte de interface
         }
     }
 }
