@@ -1,41 +1,49 @@
 //
 //  ContentView.swift
-//  FirstProject
+//  ToDoTaskApp
 //
-//  Created by found on 12/03/25.
 //
 
 import SwiftUI
 
-struct TaskView: View { //protocolo
+struct TaskView: View {
+    var task: TaskModel
+    
     var body: some View {
-        HStack{
-            VStack {
-                Text("Atividade")
-                Text("Data")
+        HStack {
+            VStack(alignment: .leading) {
+                Text(task.title)
+                Text(task.date.formatted())
+                    .foregroundStyle(.secondary)
             }
             
             Spacer()
             
             Button {
-                print("Oi")
+                task.isDone.toggle()
             } label: {
-                Label{
+                Label {
                     Text("checkbox")
                 } icon: {
-                    Image(systemName: "checkmark.square.fill")
+                    Image(systemName: task.isDone
+                          ? "checkmark.square.fill"
+                          : "square")
                 }
                 .labelStyle(.iconOnly)
-            }
-        }
-    }}
 
-#Preview { //conteudo exibido ao lado
-    TaskView()
+            }
+
+        }
+        
+    }
 }
 
-//HSatck (horizontal) ZStack
-//            Image(systemName: "heart.fill")
-//            Image(systemName: "cat.fill")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
+#Preview {
+    TaskView(
+        task: TaskModel(
+            title: "Atividade",
+            date: Date(),
+            isDone: false
+        )
+    )
+}
