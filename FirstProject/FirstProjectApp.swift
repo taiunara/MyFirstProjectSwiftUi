@@ -1,17 +1,21 @@
 //
-//  FirstProjectApp.swift
-//  FirstProject
+//  TaskModel.swift
+//  ToDoTaskApp
 //
-//  Created by found on 12/03/25.
 //
 
-import SwiftUI
+import Foundation
+import Observation
 
-@main
-struct FirstProjectApp: App {
-    var body: some Scene {
-        WindowGroup {
-            TaskView() //view inicial, parte de interface
-        }
+@Observable
+class TaskModel {
+    let title: String
+    let date: Date
+    var isDone: Bool
+    
+    init(title: String, date: Date, isDone: Bool) {
+        self.title = title
+        self.date = date
+        self.isDone = isDone
     }
 }
