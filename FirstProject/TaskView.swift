@@ -42,7 +42,7 @@ struct TaskView: View {
 #Preview {
     TaskView(
         task: TaskModel(
-            title: "Teste",
+            title: "Atividade",
             date: Date(),
             isDone: false
         )
